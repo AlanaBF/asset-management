@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
 
 const ListUserComponent = () => {
@@ -23,7 +23,7 @@ const ListUserComponent = () => {
   };
 
   const updateUser = (userId) => {
-    console.log('UserId:', userId); // Log the userId before navigating
+    console.log("UserId:", userId); // Log the userId before navigating
     navigate(`/update-user/${userId}`);
   };
 
@@ -42,14 +42,12 @@ const ListUserComponent = () => {
   return (
     <div className="page-background">
       <h2 className="text-center">Users List</h2>
-      <button className="btn btn-primary" onClick={addUser}>
-        Add User
-      </button>
+
       <div className="row">
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-            <th>User Id</th>
+              <th>User Id</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Username</th>
@@ -60,7 +58,7 @@ const ListUserComponent = () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.userId}>
-              <td>{user.userId}</td>
+                <td>{user.userId}</td>
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
                 <td>{user.username}</td>
@@ -68,7 +66,7 @@ const ListUserComponent = () => {
                 <td>
                   <button
                     onClick={() => updateUser(user.userId)}
-                    className="btn btn-info"
+                    className="btn btn-warning"
                   >
                     Update
                   </button>
@@ -83,6 +81,9 @@ const ListUserComponent = () => {
             ))}
           </tbody>
         </table>
+        <button className="btn btn-info btn-small" onClick={addUser}>
+          Add User
+        </button>
       </div>
     </div>
   );

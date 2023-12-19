@@ -1,9 +1,10 @@
 import "./App.css";
 import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
-import ListUserComponent from "./components/ListUserComponent";
-import CreateUserComponent from "./components/CreateUserComponent";
-import UpdateUserComponent from "./components/UpdateUserComponent";
+import ListUserComponent from "./components/User/ListUserComponent";
+import CreateUserComponent from "./components/User/CreateUserComponent";
+import Home from "./pages/Home/Home";
+import Finances from "./pages/Finances/Finances";
 
 import {
   createHashRouter,
@@ -17,12 +18,11 @@ function App() {
   const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route path="/" element={<ListUserComponent />} />
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/finances" element={<Finances />} />
         <Route path="/users" element={<ListUserComponent />} />
         <Route path="/add-user" element={<CreateUserComponent />} />
-        <Route path="/update-user/:userId" element={<UpdateUserComponent />} />
-        <Route path="/delete-user/:userId" element={<ListUserComponent />} />
-      
       </Route>
     )
   );

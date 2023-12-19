@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 
 const CreateUserComponent = () => {
   const [firstName, setFirstName] = useState("");
@@ -29,7 +29,7 @@ const CreateUserComponent = () => {
   };
 
   return (
-    <div>
+    <div className="page-background">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">

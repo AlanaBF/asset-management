@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 
 const UpdateUserComponent = () => {
   const { userId } = useParams(); // Get the userId from the URL
