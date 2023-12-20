@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserService from "../../services/UserService";
-
+import HeaderComponent from "../../components/HeaderComponent";
+import FooterComponent from "../../components/FooterComponent";
 const CreateUserComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -29,6 +30,8 @@ const CreateUserComponent = () => {
   };
 
   return (
+    <div>
+    <HeaderComponent />
     <div className="page-background">
       <div className="container">
         <div className="row">
@@ -88,6 +91,8 @@ const CreateUserComponent = () => {
           </div>
         </div>
       </div>
+    </div>
+    <FooterComponent />
     </div>
   );
 };

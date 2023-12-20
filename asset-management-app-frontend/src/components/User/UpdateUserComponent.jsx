@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserService from "../../services/UserService";
+import HeaderComponent from "../../components/HeaderComponent";
+import FooterComponent from "../../components/FooterComponent";
 
 const UpdateUserComponent = () => {
   const { userId } = useParams(); // Get the userId from the URL
@@ -32,7 +34,7 @@ const UpdateUserComponent = () => {
   const updateUser = (e) => {
     e.preventDefault();
     const updatedUser = { userId, firstName, lastName, username, email }; // Include the user ID
-  
+
     UserService.updateUser(updatedUser, userId)
       .then(() => {
         navigate("/users");
@@ -43,7 +45,6 @@ const UpdateUserComponent = () => {
       });
   };
 
-
   const cancel = () => {
     // Here, you can reset the form or perform other cancel actions
     setFirstName("");
@@ -53,9 +54,10 @@ const UpdateUserComponent = () => {
     navigate("/users");
   };
 
-
   return (
     <div>
+      <HeaderComponent />
+      <div className="page-background">
       <div className="container">
         <div className="row">
           <div className="card col-md-6 offset-md-3 offset-md-3">
@@ -114,6 +116,8 @@ const UpdateUserComponent = () => {
           </div>
         </div>
       </div>
+      </div>
+      <FooterComponent />
     </div>
   );
 };

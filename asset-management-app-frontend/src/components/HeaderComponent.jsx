@@ -13,8 +13,8 @@ function HeaderComponent() {
           height="50"
           className="d-inline-block align-text-top"
         />
-        {""} Asset Management
-      </Navbar.Brand>
+        {""} 
+      </Navbar.Brand> <p className="header-title">Asset Management App</p>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">

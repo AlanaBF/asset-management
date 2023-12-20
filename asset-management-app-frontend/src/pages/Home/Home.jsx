@@ -1,11 +1,15 @@
-
+import HeaderComponent from "../../components/HeaderComponent";
+import FooterComponent from "../../components/FooterComponent";
 function Home() {
   return (
-    <div className="page-background">
-    <h1>Financial Tracker Dashboard</h1>
-    
+    <div>
+      <HeaderComponent />
+      <div className="page-background">
+        <h1>Financial Tracker Dashboard</h1>
+      </div>
+      <FooterComponent />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

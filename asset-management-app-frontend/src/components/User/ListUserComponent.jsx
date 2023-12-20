@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import UserService from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
+import HeaderComponent from "../../components/HeaderComponent";
+import FooterComponent from "../../components/FooterComponent";
 
 const ListUserComponent = () => {
   const [users, setUsers] = useState([]);
@@ -40,6 +42,8 @@ const ListUserComponent = () => {
   };
 
   return (
+    <div>
+    <HeaderComponent />
     <div className="page-background">
       <h2 className="text-center">Users List</h2>
 
@@ -85,6 +89,8 @@ const ListUserComponent = () => {
           Add User
         </button>
       </div>
+    </div>
+    <FooterComponent />
     </div>
   );
 };
