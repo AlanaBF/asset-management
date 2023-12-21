@@ -2,17 +2,36 @@ import { useState } from "react";
 import { Form, Button, Navbar } from "react-bootstrap";
 import Logo from "../../assets/favicon/apple-touch-icon.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    navigate("/home");
-  };
+  //   navigate("/home");
+  // };
+
+
+  const handleLogin = async () => {
+    try {
+        const response = await axios.get('http://yourbackend.com/api/login', {
+            auth: {
+                username,
+                password,
+            },
+        });
+
+        // Handle successful login, e.g., store token or redirect
+        console.log('Login successful:', response.data);
+    } catch (error) {
+        // Handle login error
+        console.error('Login failed:', error);
+    }
+};
 
   return (
     <div>
@@ -37,25 +56,27 @@ function Login() {
         <p>Enter your email and password to login</p>
         <br></br>
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+          <Form.Group className="mb-3" controlId="formUsername">
+            <Form.Label>Username</Form.Label>
             <Form.Control
-              type="email"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" controlId="formPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button variant="primary" type="submit" onClick={handleLogin}>
             Submit
           </Button>
         </Form>
