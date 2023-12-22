@@ -22,6 +22,14 @@ class UserService {
   deleteUser(userId) {
     return axios.delete(USER_API_BASE_URL + '/' + userId);
   }
+  
+  loginUser(username, password) {
+    return axios.post(USER_API_BASE_URL + "/login", {
+      username,
+      password,
+    });
+  }
+
 }
 
 export default new UserService();

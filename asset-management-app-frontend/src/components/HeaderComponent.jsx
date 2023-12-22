@@ -1,11 +1,13 @@
 import Logo from "../assets/favicon/apple-touch-icon.png";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from 'react-router-dom';
 
 function HeaderComponent() {
+ 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark">
-      <Navbar.Brand href="/Home">
+      <Navbar.Brand as={Link} to="/home">
         <img
           src={Logo}
           alt="Logo"
@@ -21,9 +23,18 @@ function HeaderComponent() {
           <LinkContainer to="/home">
             <Nav.Link>Home</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/finances">
-            <Nav.Link>Finances</Nav.Link>
-          </LinkContainer>
+
+          <NavDropdown title="Finances" id="collasible-nav-dropdown">
+            <LinkContainer to="/finances">
+              <NavDropdown.Item>Finances</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to="/add-expense">
+              <NavDropdown.Item>Add Expense</NavDropdown.Item>
+            </LinkContainer>
+          </NavDropdown>
+
+
+
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
             <LinkContainer to="/users">
               <NavDropdown.Item>Users</NavDropdown.Item>

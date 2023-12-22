@@ -22,11 +22,11 @@ public class User  {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "email")
-	private String email;
+    @Column(name = "email", unique = true) // Adding unique constraint for email
+    private String email;
 
-	@Column(name = "username")
-	private String username;
+    @Column(name = "username", unique = true) // Adding unique constraint for username
+    private String username;
 
 	@Column(name = "password")
 	private String password;
@@ -35,7 +35,6 @@ public class User  {
 	}
 
 	public User(String firstName, String lastName, String email, String username, String password) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;

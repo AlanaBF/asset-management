@@ -2,36 +2,32 @@ import { useState } from "react";
 import { Form, Button, Navbar } from "react-bootstrap";
 import Logo from "../../assets/favicon/apple-touch-icon.png";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import UserService from "../../services/UserService";
 
 function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   navigate("/home");
-  // };
-
-
-  const handleLogin = async () => {
     try {
-        const response = await axios.get('http://yourbackend.com/api/login', {
-            auth: {
-                username,
-                password,
-            },
-        });
-
-        // Handle successful login, e.g., store token or redirect
-        console.log('Login successful:', response.data);
+      const response = await UserService.loginUser(username, password);
+      if(response.status === 200) {
+        // Handle successful login
+        console.log("Login successful:", response.data);
+        navigate("/home");
+      } else {
+        // Redirect to the main content page or perform other actions upon successful login
+        console.error("Login failed:");
+        // Display error message or perform other actions for failed login
+      }
     } catch (error) {
-        // Handle login error
-        console.error('Login failed:', error);
+      console.error("Login failed:", error);
     }
-};
+  };
 
   return (
     <div>
@@ -76,7 +72,7 @@ function Login() {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleLogin}>
+          <Button variant="primary" onClick={handleSubmit}>
             Submit
           </Button>
         </Form>
