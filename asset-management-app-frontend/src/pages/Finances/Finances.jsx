@@ -1,20 +1,17 @@
-import MonthlyLoanTable from "../../components/MonthlyFinances/MonthlyLoanTable";
+import MonthlyLoanTable from "../../components/MonthlyLoans/MonthlyLoanTable";
 import ExpenseTable from "../../components/MonthlyExpenses/ExpenseTable";
-import HeaderComponent from "../../components/HeaderComponent";
-import FooterComponent from "../../components/FooterComponent";
-
+import MonthlySavingsTable from "../../components/MonthlyLoans/MonthlySavingsTable";
 function Finances() {
   return (
     <div>
-      <HeaderComponent />
       <div className="page-background">
         <h1>Financial Tracker Data Input</h1>
         <ExpenseTable />
         <hr />
         <MonthlyLoanTable />
         <hr />
+        <MonthlySavingsTable />
       </div>
-      <FooterComponent isLoggedIn={true} />
     </div>
   );
 }

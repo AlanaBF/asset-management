@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserService from "../../services/UserService";
-import HeaderComponent from "../../components/HeaderComponent";
-import FooterComponent from "../../components/FooterComponent";
 
 const UpdateUserComponent = () => {
   const { userId } = useParams(); // Get the userId from the URL
@@ -56,7 +54,6 @@ const UpdateUserComponent = () => {
 
   return (
     <div>
-      <HeaderComponent />
       <div className="page-background">
       <div className="container">
         <div className="row">
@@ -117,7 +114,6 @@ const UpdateUserComponent = () => {
         </div>
       </div>
       </div>
-      <FooterComponent />
     </div>
   );
 };

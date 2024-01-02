@@ -40,7 +40,7 @@ const ExpenseTable = () => {
 
   return (
     <div>
-      <h1 className="text-center">Monthly Spending</h1>
+      <h1 className="text-center">Monthly Expenses</h1>
 
       <div className="row">
         <table className="table table-striped table-bordered">

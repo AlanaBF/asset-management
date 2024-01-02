@@ -1,7 +1,6 @@
 package com.nauticalturtle.assetmanagement.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,14 +19,13 @@ public class Expense {
 	private String category;
 	private int month;
 	private int year;
-	private LocalDate date;
 	private BigDecimal total;
 	
 	public Expense() {
 		
 	}
 
-	public Expense(Long id, String expense, String description, String category, int month, int year, LocalDate date,
+	public Expense(Long id, String expense, String description, String category, int month, int year,
 			BigDecimal total) {
 		super();
 		this.id = id;
@@ -36,7 +34,6 @@ public class Expense {
 		this.category = category;
 		this.month = month;
 		this.year = year;
-		this.date = date;
 		this.total = total;
 	}
 	public Long getId() {
@@ -74,12 +71,6 @@ public class Expense {
 	}
 	public void setYear(int year) {
 		this.year = year;
-	}
-	public LocalDate getDate() {
-		return date;
-	}
-	public void setDate(LocalDate date) {
-		this.date = date;
 	}
 	public BigDecimal getTotal() {
 		return total;

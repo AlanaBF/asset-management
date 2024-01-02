@@ -1,4 +1,4 @@
-function MonthlySavingsTable() {
+function MonthlyLoanTable() {
   const handleAddRow = () => {};
 
   const handleDeleteRow = () => {};
@@ -12,21 +12,25 @@ function MonthlySavingsTable() {
 
   return (
     <div>
-      <h1 className="text-center">Monthly Savings Table</h1>
+      <h1 className="text-center">Monthly Loan Table</h1>
       <div className="row">
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
               <th>Asset ID</th>
               <th>User ID</th>
-              <th>Monthly Savings Account</th>
-              <th>Value</th>
+              <th>Monthly Loan Repayment</th>
               <th>Total</th>
+              <th>Loan End Date</th>
+              <th>Countdown to end</th>
+              <th>Notes</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td></td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -66,4 +70,4 @@ function MonthlySavingsTable() {
   );
 }
 
-export default MonthlySavingsTable;
+export default MonthlyLoanTable;

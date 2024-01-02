@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeDataService from "../../services/HomeDataService";
-import HeaderComponent from "../HeaderComponent";
-import FooterComponent from "../FooterComponent";
 
 const AddExpense = () => {
   const [expense, setExpense] = useState("");
@@ -41,7 +39,6 @@ const AddExpense = () => {
 
   return (
     <div>
-      <HeaderComponent />
       <div className="page-background">
         <div className="container">
           <div className="row">
@@ -105,15 +102,13 @@ const AddExpense = () => {
                   Cancel
                 </button>
                 </form>
-                ;
               </div>
             </div>
           </div>
         </div>
       </div>
-      <FooterComponent />
     </div>
-  );
+  )
 };
 
 export default AddExpense;
